@@ -1,6 +1,6 @@
 const { Thought, User } = require('../models');
 
-const ThoughtController = {
+const thoughtController = {
     createThought({ params, body }, res) {
         console.log(body);
         Thought.create(body)
@@ -48,8 +48,8 @@ const ThoughtController = {
         });
     },
 
-    updateThoughts({params, body}, res) {
-        Thoughts.findOneAndUpdate(
+    updateThought({params, body}, res) {
+        Thought.findOneAndUpdate(
             {_id: params.id}, 
             body, 
             {new: true, runValidators: true})
@@ -115,4 +115,4 @@ const ThoughtController = {
       }
 };
 
-module.exports = ThoughtController;
+module.exports = thoughtController;
